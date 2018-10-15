@@ -1,1 +1,5 @@
 # nfq_php_intro
+
+1. funkcijos Nfq\Akademija\Soft\calculateHomeWorkSum(3, 2.2, ‘1’) grąžinama reikšmė yra 6, nes vykdant funkciją jai perduodami parametrai yra automatiškai paverčiami į "int" tipo kintamuosius, to pasekoje antras parametras funkcijoje yra apvalinamas (type juggling) į integer, priskiriant artimesnę reikšmę, pvz verčiant 2.9, gauname 2 ir t.t, taip yra todėl, nes aprašant funkciją prieš parametrus nurodome norimus parametrų tipus (šiuo atveju int), pvz "funkcija test (int kintamasis){};"
+
+2.Kviečiant funkciją Nfq\Akademija\Strict\calculateHomeWorkSum(3, 2.2, ‘1’); iš failo functions_strict.php su aprašytu declare(strict_types=1); atributu, rezultatą vistiek gauname 6, ir aprašas declare(strict_types=1) yra ignoruojamas, nors aprašant ir kviečiant funkciją iš to paties failo gauname klaidą. Pagal php.net dokumentaciją, taip yra todėl, nes strict tipas veikia tik kviečiant funkcijas iš to paties failo kuriame jos aprašytos, kviečiant funkcijas iš kitos aplinkos, kurioje nėra aprašyto strict tipo, prioritetas yra skiriamas jam. Todėl norint gauti klaidą, reiktų strict apsirašyti ir aplinkoje iš kurios funkcija kviečiama.
