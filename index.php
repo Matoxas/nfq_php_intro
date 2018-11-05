@@ -20,16 +20,6 @@
     $endDate = new \DateTime('2018-11-05');
     $reservation = new Reservation($startDate, $endDate, $guest);
     BookingManager::bookRoom($room, $reservation);
-    BookingManager::bookRoom($room, $reservation);
-
-
-//    var_dump($startDate < $endDate);
-
-//    if ((('start' > $startDate) && ('start' > $endDate))){
-//        $valid = true;
-//    }else{
-//        $valid = false;
-//    }
 
 
     ?>
