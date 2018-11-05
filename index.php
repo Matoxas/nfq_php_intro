@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>PHP2 - Matas Kaznavičius</title>
   </head>
   <body>
 
@@ -11,30 +11,28 @@
 
     require_once __DIR__ . '/vendor/autoload.php';
 
-    use Nfq\Akademija\Not_Typed;
-    use Nfq\Akademija\Soft;
-    use Nfq\Akademija\Strict;
+    use Nfq\Akademija\Room\{Room, SingleRoom, BedRoom, Apartment};
+    use Nfq\Akademija\{Guest, Reservation, BookingManager};
 
-     ?>
+    $room = new SingleRoom(1408, 99);
+    $guest = new Guest('Vardenis', 'Pavardenis');
+    $startDate = new \DateTime('2018-11-01');
+    $endDate = new \DateTime('2018-11-05');
+    $reservation = new Reservation($startDate, $endDate, $guest);
+    BookingManager::bookRoom($room, $reservation);
+    BookingManager::bookRoom($room, $reservation);
 
-<?php
-echo 'calculateHomeWorkSum: ';
-echo calculateHomeWorkSum(3, 2.2, '1') ;
-?>
-<br>
-<?php
-echo 'Nfq\Akademija\Not_Typed\calculateHomeWorkSum: ';
-echo Not_Typed\calculateHomeWorkSum(3, 2.2, '1');
-?>
-<br>
-<?php echo 'Nfq\Akademija\Soft\calculateHomeWorkSum: ';
-echo Soft\calculateHomeWorkSum(3, 2.2, '1');
-?>
-<br>
-<?php echo 'Nfq\Akademija\Strict\calculateHomeWorkSum: ';
-echo Strict\calculateHomeWorkSum(3, 2.2, '1');
-?>
 
+//    var_dump($startDate < $endDate);
+
+//    if ((('start' > $startDate) && ('start' > $endDate))){
+//        $valid = true;
+//    }else{
+//        $valid = false;
+//    }
+
+
+    ?>
 
 
 
